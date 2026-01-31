@@ -5,6 +5,9 @@
     margin: auto;
     
 }
+body{
+    background-color: wheat;
+}
 
 .cell {
     background: lightblue;
@@ -23,4 +26,25 @@
 #gameContainer{
     font-family: 'Gill Sans', 'Gill Sans MT', cursive, 'Trebuchet MS', sans-serif;
     text-align: center;
+}
+
+input{
+   background-color: lightblue;
+   color: black;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   border: 1px solid black;
+   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+
+
+}
+button{
+
+   background-color: lightblue;
+   color: black;
+   font-family: 'Gill Sans', 'Gill Sans MT', cursive, 'Trebuchet MS', sans-serif;
+   border: 1px solid black;
+   cursor: pointer;
+   box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+
+
 }
