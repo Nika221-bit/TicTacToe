@@ -11,6 +11,15 @@ const winCodition = [
     [0,4,8],
     [2,4,6]
 ];
+const player1 = document.getElementById("player1")
+const player2 = document.getElementById("player2")
+const leaderboard = document.getElementById("leaderboard");
+
+document.getElementById("accept").addEventListener("click", () => {
+    leaderboard.innerHTML = `Player1: ${player1.value} <br> Player2: ${player2.value}`;
+  });
+
+
 
 let options = ["","","","","","","","",""];
 let currentplayer = "X";
@@ -44,6 +53,9 @@ function changePlayer(){
     statustext.textContent = `${currentplayer}'s turn`;
 }
 
+let scoreX = 0;
+let scoreO = 0;
+
 function checkWinner(){
     let roundWon = false;
 
@@ -64,6 +76,12 @@ function checkWinner(){
 
     if(roundWon){
         statustext.textContent = `${currentplayer} wins!`;
+        if(currentplayer === "X"){
+            scoreX++;
+        } else {
+            scoreO++;
+        }
+        updateLeaderboard();
         running = false;
     }
     else if(!options.includes("")){
@@ -75,10 +93,15 @@ function checkWinner(){
     }
 }
 
+function updateLeaderboard(){
+    leaderboard.innerHTML = `Player1: ${player1.value} : ${scoreX} <br> Player2: ${player2.value} : ${scoreO}`;
+}
+
+
 function restartGame(){
-   currentplayer = "X";
-   options = ["","","","","","","","",""];
-   statustext.textContent = `${currentplayer}'turn`
-   cells.forEach(cells => cells.textContent = "")
-   running = true;
+    currentplayer = "X";
+    options = ["","","","","","","","",""];
+    statustext.textContent = `${currentplayer}'s turn`;
+    cells.forEach(cell => cell.textContent = "");
+    running = true;
 }
